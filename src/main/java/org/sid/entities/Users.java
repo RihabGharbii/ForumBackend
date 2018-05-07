@@ -11,6 +11,11 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonSetter;
+
 @Entity
 public class Users implements Serializable{
 	
@@ -26,6 +31,8 @@ public class Users implements Serializable{
 	private String picture;
 	@ManyToMany(fetch=FetchType.EAGER)
 	private Collection<Role>  roles=new ArrayList<>();
+	@Autowired
+	private Users users; //
 	public Long getU_id() {
 		return U_id;
 	}
@@ -38,9 +45,13 @@ public class Users implements Serializable{
 	public void setUsername(String username) {
 		this.username = username;
 	}
+	
+	@JsonIgnore
 	public String getPassword() {
 		return password;
 	}
+	
+	@JsonSetter
 	public void setPassword(String password) {
 		this.password = password;
 	}
