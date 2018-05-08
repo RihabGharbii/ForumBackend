@@ -11,8 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
@@ -31,8 +29,7 @@ public class Users implements Serializable{
 	private String picture;
 	@ManyToMany(fetch=FetchType.EAGER)
 	private Collection<Role>  roles=new ArrayList<>();
-	@Autowired
-	private Users users; //
+	
 	public Long getU_id() {
 		return U_id;
 	}

@@ -23,8 +23,7 @@ public class AccountServiceImpl implements AcountService{
     @Autowired
 	private RoleRepository roleRepository;
     
- @Autowired
- private AcountService acountService;  //
+   
 	
     @Override
 	public Users saveUser(Users user) {
